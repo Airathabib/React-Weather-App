@@ -1,0 +1,8 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #dff3f3;
+  height: 100vh;
+  padding: 24px;
+}
