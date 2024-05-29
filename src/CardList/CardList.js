@@ -29,13 +29,17 @@ class CardListNoState extends React.Component {
 
     return (
       <>
+        <div className="select-descr">Сортировать карточки города</div>
         <select
           className="select"
           value={orderBy}
           onChange={this.handleOnChange}>
-          <option value="asc">By name asc</option>
-          <option value="desc">By name desc</option>
+          <option value="asc">По алфавиту «А-Я»</option>
+          <option value="desc">Обратный порядок «Я-А»</option>
         </select>
+        <div className="text-descr">
+          Нажмите на карточку города, чтобы узнать прогноз на пять дней
+        </div>
         <div className="card--list">
           {sortedCitiesList.map((city) => (
             // @ts-ignore

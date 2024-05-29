@@ -13,8 +13,7 @@ export const useWeather = (city) => {
           setData(fetchedData);
         }
       })
-      .catch((err) => {
-        console.log('err', err);
+      .catch(() => {
         setData(null);
       });
   }, [city]);

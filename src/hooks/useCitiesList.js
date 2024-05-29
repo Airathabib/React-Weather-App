@@ -3,6 +3,7 @@ import { useEffect, useReducer } from 'react';
 const initialState = {
   inputValue: '',
   editingCity: '',
+  // @ts-ignore
   citiesList: JSON.parse(localStorage.getItem('citiesList')) || [],
 };
 
@@ -18,7 +19,12 @@ const reducer = (state, action) => {
     case 'DELETE_CITY': {
       const oldArray = state.citiesList;
       const newArray = oldArray.filter((el) => el !== action.payload);
-      return { ...state, citiesList: newArray };
+      return {
+        ...state,
+        citiesList: newArray,
+        editingCity: initialState.editingCity,
+        inputValue: initialState.inputValue,
+      };
     }
     case 'EDIT_CITY': {
       return {
@@ -54,6 +60,7 @@ export const useCitiesList = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { citiesList } = state;
+
   useEffect(() => {
     localStorage.setItem('citiesList', JSON.stringify(citiesList));
   }, [citiesList]);

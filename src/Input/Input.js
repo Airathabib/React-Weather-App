@@ -1,6 +1,7 @@
 import React, { useRef, useContext } from 'react';
-import './Input.css';
 import { GlobalContext } from '../App';
+// import { useCurrentPosition } from '../hooks/useCurrentPosition';
+import './Input.css';
 
 export const Input = () => {
   const inputRef = useRef(null);
@@ -46,6 +47,12 @@ export const Input = () => {
       payload: event.target.value,
     });
   };
+  const handleOnGeo = () => {
+    // dispatch({
+    //   type: 'ADD_CITY',
+    // });
+    console.log('click');
+  };
 
   return (
     <div className="input--wrap">
@@ -58,14 +65,16 @@ export const Input = () => {
       />
       {editingCity ? (
         <button className="button" onClick={handleOnDone}>
-          {' '}
-          done{' '}
+          Изменить
         </button>
       ) : (
         <button className="button" onClick={handleOnAdd}>
-          +
+          Добавить
         </button>
       )}
+      <button className="button geo-btn" onClick={handleOnGeo}>
+        Geo
+      </button>
     </div>
   );
 };

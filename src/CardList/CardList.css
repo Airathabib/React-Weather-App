@@ -4,7 +4,15 @@ flex-wrap: wrap;
 gap: 1rem;
 }
 .select{
-  width: 8rem;
+  width: 12rem;
   height: 2rem;
   outline: none;
+}
+.text-descr{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.select-descr{
+  font-size: 1.2rem;
+  font-weight: 600;
 }

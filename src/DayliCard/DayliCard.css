@@ -1,0 +1,28 @@
+
+.daily-card{
+  width: 10rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 0.5rem;
+  background-color: #3a8ac0;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  box-shadow: 3px 3px 12px 1px rgba(0,0,0, .25);
+}
+.temp,
+.descr,
+.current-day
+{
+color: #fff;
+font-size: 18px;
+font-weight: 600;
+}
+
+.temp::after{
+  content: "° C";
+}

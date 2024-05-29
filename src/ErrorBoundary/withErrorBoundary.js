@@ -1,15 +1,15 @@
 import React from 'react';
 
-export class ErrorBoundary extends React.PureComponent {
+export class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { error: null };
   }
-  componentDidCatch(erroe, errorInfo) {
+  componentDidCatch(error, errorInfo) {
     this.setState({ error: errorInfo });
+    console.log(error);
   }
   render() {
-    console.log('this.props.children', this.props.children);
     if (this.state.error) {
       return <div>Что-то сломалось, извините!</div>;
     }
