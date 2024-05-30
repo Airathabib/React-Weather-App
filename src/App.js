@@ -10,7 +10,6 @@ import { SingleCity } from './SingleCity/SingleCity';
 
 import './App.css';
 
-// @ts-ignore
 export const GlobalContext = React.createContext();
 
 function App() {

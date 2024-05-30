@@ -1,9 +1,12 @@
 import React, { useRef, useContext } from 'react';
+
 import { GlobalContext } from '../App';
-// import { useCurrentPosition } from '../hooks/useCurrentPosition';
+import { useCurrentPosition } from '../hooks/useCurrentPosition';
+
 import './Input.css';
 
 export const Input = () => {
+  const data = useCurrentPosition();
   const inputRef = useRef(null);
   const {
     dispatch,
@@ -19,7 +22,6 @@ export const Input = () => {
         type: 'RESET_INPUT_VALUE',
       });
       if (inputRef.current) {
-        // @ts-ignore
         return inputRef.current.focus();
       }
     }
@@ -35,7 +37,6 @@ export const Input = () => {
         type: 'RESET_INPUT_VALUE',
       });
       if (inputRef.current) {
-        // @ts-ignore
         return inputRef.current.focus();
       }
     }
@@ -48,10 +49,10 @@ export const Input = () => {
     });
   };
   const handleOnGeo = () => {
-    // dispatch({
-    //   type: 'ADD_CITY',
-    // });
-    console.log('click');
+    dispatch({
+      type: 'ADD_CITY',
+      payload: data.name,
+    });
   };
 
   return (
@@ -73,7 +74,7 @@ export const Input = () => {
         </button>
       )}
       <button className="button geo-btn" onClick={handleOnGeo}>
-        Geo
+        Погода у вас
       </button>
     </div>
   );

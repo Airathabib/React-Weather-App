@@ -3,9 +3,9 @@ import { Link, useMatch } from 'react-router-dom';
 
 import { GlobalContext } from '../App';
 import { useWeather } from '../hooks/useWeather';
-// import { useCurrentPosition } from '../hooks/useCurrentposition';
 
 import './Card.css';
+
 const CardNoMemo = ({ city, setCityCoord }) => {
   const data = useWeather(city);
 
@@ -38,19 +38,13 @@ const CardNoMemo = ({ city, setCityCoord }) => {
       payload: city,
     });
   };
-  // const handleOnLinkClick = () => {
-  //   dispatch({
-  //     type: 'EDIT_CITY_DONE',
-  //     payload: city,
-  //   });
-  // };
 
   if (data === null) {
     return (
       <div className="card">
         <div className="action--button-wrapper">
           <button className="action-button" onClick={handleOnEdit}>
-            edit
+            править
           </button>
 
           <button className="action-button" onClick={handleOnDelete}>
@@ -73,13 +67,10 @@ const CardNoMemo = ({ city, setCityCoord }) => {
 
   if (isHome) {
     return (
-      <Link
-        to={`/city/${city.toLowerCase()}`}
-        // onClick={handleOnLinkClick}
-        className="card">
+      <Link to={`/city/${city.toLowerCase()}`} className="card">
         <div className="action--button-wrapper">
           <button className="action-button" onClick={handleOnEdit}>
-            edit
+            править
           </button>
 
           <button className="action-button" onClick={handleOnDelete}>
@@ -123,5 +114,4 @@ const CardNoMemo = ({ city, setCityCoord }) => {
   );
 };
 
-// @ts-ignore
 export const Card = memo(CardNoMemo);

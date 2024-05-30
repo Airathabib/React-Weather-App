@@ -8,7 +8,7 @@ class CardListNoState extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      orderBy: 'desc',
+      orderBy: 'ask',
     };
     this.handleOnChange = this.handleOnChange.bind(this);
   }
@@ -22,7 +22,12 @@ class CardListNoState extends React.Component {
   render() {
     const { orderBy } = this.state;
     const { citiesList } = this.props.state;
-    const sortedCitiesList = citiesList.sort();
+
+    const chekIdentCityes = citiesList.filter((item, idx) => {
+      return citiesList.indexOf(item) === idx;
+    });
+
+    const sortedCitiesList = chekIdentCityes.sort();
     if (orderBy === 'desc') {
       sortedCitiesList.reverse();
     }
@@ -42,7 +47,6 @@ class CardListNoState extends React.Component {
         </div>
         <div className="card--list">
           {sortedCitiesList.map((city) => (
-            // @ts-ignore
             <Card key={city} city={city} />
           ))}
         </div>

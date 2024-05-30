@@ -1,10 +1,9 @@
-/* eslint-disable react/jsx-key */
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import { Card } from '../Card/Card';
 import { useForecast } from '../hooks/useForecast';
-// @ts-ignore
+
 import { DayliCard } from '../DayliCard/DayliCard';
 
 import './SingleCity.css';
@@ -14,11 +13,11 @@ export const SingleCity = () => {
   const { city } = useParams();
   const data = useForecast(cityCoord);
 
-  let arrFiveDays;
+  let arrFiveDays = [];
   const weatherData = [];
   if (data !== null) arrFiveDays = data.list;
 
-  function fiveDay() {
+  function fiveDayWeather() {
     if (data !== null) {
       arrFiveDays.forEach((item) => {
         weatherData.push(item);
@@ -39,7 +38,7 @@ export const SingleCity = () => {
         <Card city={city} setCityCoord={setCityCoord} />
         {data && (
           <div className="daily-cards">
-            {fiveDay().map((dayliCard) => (
+            {fiveDayWeather().map((dayliCard) => (
               <DayliCard dayliCard={dayliCard} key={dayliCard.dt} />
             ))}
           </div>
