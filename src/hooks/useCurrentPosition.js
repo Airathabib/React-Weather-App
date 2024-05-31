@@ -14,6 +14,6 @@ export const useCurrentPosition = () => {
           console.error('Error', error);
         });
     });
-  });
+  }, []);
   return data;
 };

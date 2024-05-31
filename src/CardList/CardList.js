@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '../Card/Card';
-import { withGlobalState } from '../hoks/withGlobalState';
+import { withGlobalState } from '../hocs/withGlobalState';
 
 import './CardList.css';
 
