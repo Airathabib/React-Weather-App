@@ -14,10 +14,10 @@ export const SingleCity = () => {
   const data = useForecast(cityCoord);
 
   let arrFiveDays = [];
-  const weatherData = [];
   if (data !== null) arrFiveDays = data.list;
 
   function fiveDayWeather() {
+    const weatherData = [];
     if (data !== null) {
       arrFiveDays.forEach((item) => {
         weatherData.push(item);

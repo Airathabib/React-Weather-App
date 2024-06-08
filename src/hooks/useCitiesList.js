@@ -3,7 +3,6 @@ import { useEffect, useReducer } from 'react';
 const initialState = {
   inputValue: '',
   editingCity: '',
-  // @ts-ignore
   citiesList: JSON.parse(localStorage.getItem('citiesList')) || [],
 };
 
@@ -62,7 +61,11 @@ export const useCitiesList = () => {
   const { citiesList } = state;
 
   useEffect(() => {
-    localStorage.setItem('citiesList', JSON.stringify(citiesList));
+    const filterCitiesList = citiesList.filter((item, idx) => {
+      return citiesList.indexOf(item) === idx;
+    });
+
+    localStorage.setItem('citiesList', JSON.stringify(filterCitiesList));
   }, [citiesList]);
   return [state, dispatch];
 };
